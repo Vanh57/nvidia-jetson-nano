@@ -30,8 +30,7 @@ class EmotionDetector:
 
     def detect_emotion(self, face):
         """
-        Detects emotion in the provided face image using the trained CNN model.
-        The face image should be preprocessed before calling this method.
+        Detects emotion in the provided face image
         """
         face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
         face = cv2.resize(face, (48, 48))
@@ -59,7 +58,7 @@ class EmotionDetector:
             f'{emotion_label}: {confidence:.2f}',
             (x1, y2 + 20),
             cv2.FONT_HERSHEY_SIMPLEX,
-            0.7,
+            0.5,
             color,
             2
         )

@@ -1,4 +1,4 @@
-# Real-Time facial recognition and emotion detection System
+# Real-Time facial detection and emotion recognition system
 
 ## Table of contents
 
@@ -10,13 +10,12 @@
 
 ## Overview
 
-This project implements a **Real-Time facial recognition and emotion detection System**. It leverages deep learning models for face detection, recognition, and emotion analysis.
+This project implements a **Real-Time facial detection and emotion recognition system**. It leverages deep learning models for face detection, emotion analysis.
 
 ## Features
 
 - **Real-time face detection:** Detects faces in live video streams
-- **Face recognition:** Identifies known individuals
-- **Emotion detection:** Analyzes facial expressions to determine emotions Angry, Disgust, Fear, Happy, Sad, Surprise and Neutral
+- **Emotion recognition:** Analyzes facial expressions to determine emotions Angry, Disgust, Fear, Happy, Sad, Surprise and Neutral
 
 ## Demo
 
@@ -30,7 +29,7 @@ This project implements a **Real-Time facial recognition and emotion detection S
 
 - **Hardware:**
   - NVIDIA Jetson Nano
-  - HIKVISION Camera
+  - HIKVISION Camera or a USB Webcam
 
 - **Software:**
   - NVIDIA JetPack SDK
@@ -47,19 +46,19 @@ This project implements a **Real-Time facial recognition and emotion detection S
    - Configure the HIKVISION Camera and note the IP address, USERNAME, and PASSWORD
    - Connect to the camera via the RSTP protocol by setting the `camera_channel` parameter in the `main.py` file
 
-   **If you have a Webcam, follow these steps:**
+   **If you have a USB Webcam, follow these steps:**
    - Plug the Webcam into the same network as the NVIDIA Jetson Nano
    - Set up the `camera_channel` parameter in the `main.py` file
 
-3. **Clone repository:**
+3. **Clone repository into NVIDIA Jetson Nano:**
    ```bash
    git clone https://github.com/Vanh57/nvidia-jetson-nano.git
    cd nvidia-jetson-nano
    ```
 
-4. **Create virtual environment:**
+4. **Create virtual environment inside the cloned repository:**
    ```bash
-   python3 -m venv venv
+   python -m venv venv
    source venv/bin/activate
    ```
 
@@ -69,14 +68,21 @@ This project implements a **Real-Time facial recognition and emotion detection S
    pip install -r requirements.txt
    ```
 
-6. **Prepare known faces:**
-Add images of known individuals in data/faces/<person_name>/.
-Then run:
-   ```bash
-   python script_to_train_modified_yolov8_model_for_face_reg.py
-   ```
-
 ## Usage
    ```bash
    python src/main.py
+   ```
+
+## Optional: Train or Retrain the `emotion_detection.keras` model
+
+### Dataset
+   This project use the [Facial Expression Recognition (FER) Challenge dataset](https://www.kaggle.com/datasets/ashishpatel26/facial-expression-recognitionferchallenge/data) from Kaggle.
+
+   To use this dataset, download it from the provided link and store it in the `emotion_dataset/` directory.
+
+### Fine-tuning the model
+   To enhance the accuracy of the `emotion_detection.keras` model or to customize it to your specific needs, you can retrain the model using the `emotion_detection.py` script. Running this script will generate a new `emotion_detection.keras` model.
+
+   ```bash
+   python src/emotion_detection.py
    ```

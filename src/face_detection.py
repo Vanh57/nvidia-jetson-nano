@@ -11,21 +11,21 @@ class FaceDetector:
 
     def detect_faces(self, frame, conf_threshold=0.5):
         """
-        Detect faces in the given frame using the YOLOv8 model.
-        Returns a list of detected faces with their bounding boxes and confidence scores.
+        Detect faces using the YOLOv8 model
         """
         results = self.model(frame)
         faces = []
         for result in results:
-            for bbox, conf in zip(result.boxes, result.conf):
+            for bbox in result.boxes:
+                conf = bbox.conf[0].item()
                 if conf > conf_threshold:
-                    x1, y1, x2, y2 = [int(coord) for coord in bbox.xyxy[0].numpy()]
-                    faces.append(((x1, y1, x2, y2), conf.numpy()))
+                    x1, y1, x2, y2 = [int(coord) for coord in bbox.xyxy[0].cpu().numpy()]
+                    faces.append(((x1, y1, x2, y2), conf))
         return faces
 
     def draw_faces(self, frame, faces):
         """
-        Draw rectangles around detected faces and display confidence scores.
+        Draw rectangles around detected faces and display confidence scores
         """
         for (box, conf) in faces:
             x1, y1, x2, y2 = box
@@ -35,7 +35,7 @@ class FaceDetector:
                 f'{conf:.2f}',
                 (x1, y1 - 10),
                 cv2.FONT_HERSHEY_SIMPLEX,
-                0.9,
+                0.5,
                 (0, 255, 0),
                 2
             )

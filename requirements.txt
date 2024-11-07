@@ -1,7 +1,6 @@
-torch
-torchvision
 opencv-python
-Flask
-Grafana
-sqlite3
-trt-pose
+numpy
+ultralytics
+tensorflow
+pandas
+scikit-learn
