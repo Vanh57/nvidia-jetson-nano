@@ -9,7 +9,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
 
     face_detector = FaceDetector('models/yolov8n-face.pt')
-    emotion_detector = EmotionDetector('models/emotion_detection.keras')
+    emotion_detector = EmotionDetector('models/emotion_detection.h5')
 
     # Start video capture
     ### Define HIKVISION channel
