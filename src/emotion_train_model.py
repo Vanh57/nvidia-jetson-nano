@@ -226,4 +226,4 @@ model.fit(
 )
 
 # Location to store the model
-model.save("D:/AI_Projects/nvidia-jetson-nano/models/emotion_detection.keras")
+model.save("D:/AI_Projects/nvidia-jetson-nano/models/emotion_detection.h5")

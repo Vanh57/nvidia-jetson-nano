@@ -1,8 +1,8 @@
 import cv2
 import logging
 import numpy as np
-from src.face_detection import FaceDetector
-from src.emotion_detection import EmotionDetector
+from face_detection import FaceDetector
+from emotion_detection import EmotionDetector
 from sklearn.metrics.pairwise import cosine_similarity
 
 def main():

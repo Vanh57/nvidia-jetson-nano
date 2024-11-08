@@ -56,15 +56,20 @@ This project implements a **Real-Time facial detection and emotion recognition s
    cd nvidia-jetson-nano
    ```
 
-4. **Create virtual environment inside the cloned repository:**
+4. **Setup virtual environment inside the cloned repository in NVIDIA Jetson Nano:**
    ```bash
-   python -m venv venv
+   export LC_ALL="en_US.UTF-8"
+   export LC_CTYPE="en_US.UTF-8"
+   sudo dpkg-reconfigure locales
+   sudo apt-get install python3.7-venv
+   python3.7 -m venv venv
    source venv/bin/activate
+   python3.7 -m pip install -U pip setuptools wheel
+   sudo apt-get install libhdf5-dev
    ```
 
 5. **Install dependencies:**
    ```bash
-   pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
