@@ -28,7 +28,7 @@ This project implements a **Real-Time facial detection and emotion recognition s
 
 ## Demo
 
-![Demo video](https://drive.google.com/file/d/1HL4nieko-YTUYC-HZvycslImt_dzazbh/view?usp=drive_link)
+https://drive.google.com/file/d/1HL4nieko-YTUYC-HZvycslImt_dzazbh/view?usp=drive_link
 
 
 ## Installation
