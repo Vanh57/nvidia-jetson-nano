@@ -16,7 +16,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical
 
 ### The path csv should be the path to fer2013.csv
-df = pd.read_csv('D:/AI_Projects/nvidia-jetson-nano/emotion_dataset/fer2013/fer2013/fer2013.csv')
+df = pd.read_csv('/home/jetson/nvidia-jetson-nano/emotion_dataset/fer2013/fer2013/fer2013.csv')
 
 INTERESTED_LABELS = [3, 4, 6]
 df = df[df.emotion.isin(INTERESTED_LABELS)]
@@ -226,4 +226,4 @@ model.fit(
 )
 
 # Location to store the model
-model.save("D:/AI_Projects/nvidia-jetson-nano/models/emotion_detection.h5")
+model.save("/home/jetson/nvidia-jetson-nano/models/emotion_detection.h5")

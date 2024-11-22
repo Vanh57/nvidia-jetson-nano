@@ -3,7 +3,6 @@ import logging
 import numpy as np
 from face_detection import FaceDetector
 from emotion_detection import EmotionDetector
-from sklearn.metrics.pairwise import cosine_similarity
 
 def main():
     logging.basicConfig(level=logging.INFO)

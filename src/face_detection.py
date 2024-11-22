@@ -1,3 +1,7 @@
+import sys
+# Path to the ultralytics folder
+sys.path.append('/home/jetson/nvidia-jetson-nano/ultralytics')
+
 import cv2
 from ultralytics import YOLO
 import logging
@@ -7,6 +11,7 @@ logging.basicConfig(level=logging.INFO)
 class FaceDetector:
     def __init__(self, model_path):
         self.model = YOLO(model_path)
+        self.model.to('cuda')
         logging.info(f"YOLOv8 model loaded from {model_path}")
 
     def detect_faces(self, frame, conf_threshold=0.5):

@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 
 class EmotionDetector:
     def __init__(self, model_path):
-        self.model = tf.keras.models.load_model(model_path)
+        self.model = tf.keras.models.load_model(model_path, compile=False)
         logging.info(f"Emotion detection model loaded from {model_path}")
         self.emotion_dict = {
             0: "Angry",
